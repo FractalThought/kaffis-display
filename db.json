@@ -1,0 +1,16 @@
+{
+	"vanlig": [
+		"Chili con carne med ris",
+		"Stekt rödspätta med remouladsås och kokt potatis.",
+		"Pasta med skinksås.",
+		"Köttfärslimpa med gräddsås och kokt potatis.",
+		"Kycklingwok med grönsaker och ris"
+	],
+	"vegetarisk": [
+		"Vegetarisk con carne med ris",
+		"Stekt quornfilé med remouladsås och kokt potatis.",
+		"Pasta med svamp och grönsakssås",
+		"Falafel med gräddsås och kokt potatis.",
+		"Grönsakswok med ris"
+	]
+}

@@ -1,3 +1,6 @@
+# Kaffis Display
+This project creates a slideshow that is supposed to be displayed in Kaffis at Gutegymnasiet.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
