@@ -51,7 +51,7 @@ const MenuDiv = styled.div`
 `;
 
 const ListHeading = styled.h1`
-  font-size: 8vh;
+  font-size: 8vmin;
   color: #fff;
   margin: 0;
   padding: 3vh 0;
@@ -72,7 +72,7 @@ const ClockHeading = styled.h1`
 const CurrentDayContainer = styled.div`
   grid-column: 2/2;
   grid-row: 2/-1;
-  font-size: 7vh;
+  font-size: 7vmin;
   color: #444;
   padding: 0.5rem;
   text-align: center;

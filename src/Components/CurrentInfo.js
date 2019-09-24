@@ -11,18 +11,18 @@ const Container = styled.div`
 `;
 
 const CurrentHeading = styled.h1`
-  font-size: 10vh;
+  font-size: 10vmin;
   color: #fff;
   margin-bottom: 0;
 `;
 const DayTime = styled.h1`
-  font-size: 7vh;
+  font-size: 7vmin;
   color: #fff;
   margin-bottom: 0;
   margin-top: 0;
 `;
 const CurrentInformation = styled.p`
-  font-size: 5vh;
+  font-size: 5vmin;
   color: #fff;
   margin-top: 1vh;
 `;
