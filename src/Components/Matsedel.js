@@ -2,8 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import Clock from "react-live-clock";
 
-
-
 const vanlig = [
   "Chili con carne med ris",
   "Stekt rödspätta med remouladsås och kokt potatis.",
@@ -134,7 +132,7 @@ function Matsedel({ currentDay, dayName }) {
     <Container>
       <ListHeading>Matsedel</ListHeading>
       <ClockHeading>
-        <Clock />
+        <Clock ticking={true} format={"hh:mm:ss"} />
       </ClockHeading>
       {vanlig.map((item, key) => {
         if (key !== currentDay - 1) {
