@@ -144,6 +144,8 @@ function Matsedel({ currentDay, dayName }) {
               veg={vegetarisk[key]}
             ></MenuItem>
           );
+        } else {
+          return;
         }
       })}
       <CurrentDayContainer>
