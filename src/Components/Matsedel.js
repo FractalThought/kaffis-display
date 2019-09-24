@@ -132,7 +132,7 @@ function Matsedel({ currentDay, dayName }) {
     <Container>
       <ListHeading>Matsedel</ListHeading>
       <ClockHeading>
-        <Clock ticking={true} format={"hh:mm:ss"} />
+        <Clock ticking={true} format={"HH:mm:ss"} />
       </ClockHeading>
       {vanlig.map((item, key) => {
         if (key !== currentDay - 1) {

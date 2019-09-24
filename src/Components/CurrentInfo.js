@@ -33,7 +33,7 @@ function CurrentInfo({ dayName }) {
       <div>
         <CurrentHeading>Aktuell information</CurrentHeading>
         <DayTime>
-          {dayName} <Clock ticking={true} format={"hh:mm:ss"} />
+          {dayName} <Clock ticking={true} format={"HH:mm:ss"} />
         </DayTime>
         <CurrentInformation>
           Lorem Ipsum är en utfyllnadstext från tryck- och förlagsindustrin.
