@@ -41,7 +41,6 @@ function App() {
   let numberedDay = day.getDay();
 
   useInterval(() => {
-    // Your custom logic here
     console.log("Updating");
     setDay(new Date());
   }, 60000);
