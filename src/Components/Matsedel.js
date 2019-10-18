@@ -2,21 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import Clock from "react-live-clock";
 
-const vanlig = [
-  "Chili con carne med ris",
-  "Stekt rödspätta med remouladsås och kokt potatis.",
-  "Pasta med skinksås.",
-  "Köttfärslimpa med gräddsås och kokt potatis.",
-  "Kycklingwok med grönsaker och ris"
-];
-const vegetarisk = [
-  "Vegetarisk con carne med ris",
-  "Stekt quornfilé med remouladsås och kokt potatis.",
-  "Pasta med svamp och grönsakssås",
-  "Falafel med gräddsås och kokt potatis.",
-  "Grönsakswok med ris"
-];
-
 const Container = styled.div`
   height: 90vh;
   width: 90vw;
@@ -122,7 +107,34 @@ function MenuItem({ day, vanlig, veg }) {
   );
 }
 
-function Matsedel({ currentDay, dayName }) {
+function Matsedel({ currentDay, dayName, matsedel }) {
+  /*
+    Data looks like this:
+	"monday": "Köttbullar serveras med stuvade makaroner",
+	"mondayVeg": "Quorn bullar serveras med stuvade makaroner",
+	"tuesday": "Sprödbakad fisk serveras med remouladsås och kokt potatis",
+	"tuesdayVeg": "Sprödbakade grönsaksbiffar serveras med remouladsås och kokt potatis",
+	"wednesday": "Bönbiffar serveras med tomatsås och grönsaksris",
+	"wednesdayVeg": "Bönbiffar serveras med tomatsås och grönsaksris",
+	"thursday": "Ost och broccolisoppa serveras med mjukt bröd",
+	"thursdayVeg": "Grön ärtsoppa serveras med mjukt bröd",
+	"friday": "Helstekt fläskytterfilé serveras med potatisgratäng",
+  "fridayVeg": "Vegetariska biffar serveras med potatisgratäng"
+  
+  (In reality, its an array, but shouldn't be later on)
+  */
+  const currentMatsedel = Object.values(matsedel[1]);
+  /*
+    Now it looks like this:
+    ["mondayValue", "mondayVegValue", "tuesdayValue", ""]
+  */
+  const vanlig = [];
+  const vegetarisk = [];
+  for (let index = 0; index < currentMatsedel.length - 1; index += 2) {
+    vanlig.push(currentMatsedel[index]);
+    vegetarisk.push(currentMatsedel[index + 1]);
+  }
+
   let currentLunch = {
     vanlig: vanlig[currentDay - 1],
     vegetarisk: vegetarisk[currentDay - 1]
@@ -145,7 +157,7 @@ function Matsedel({ currentDay, dayName }) {
             ></MenuItem>
           );
         } else {
-          return;
+          return null;
         }
       })}
       <CurrentDayContainer>

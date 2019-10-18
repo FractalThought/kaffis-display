@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
+import Axios from "axios";
 import "./App.css";
 
 import Carousel from "@brainhubeu/react-carousel";
@@ -14,6 +15,56 @@ import Matsedel from "./Components/Matsedel";
 
 	Check if it should have more than 2 slides...
 */
+
+/*
+  Need to do the following:
+  Database on MongoDB
+  Backend REST API API on Heroku
+  Kaffis-display app published to Netlify
+  CMS published somewhere
+  Discord bot that can display info
+*/
+
+const API = "http://localhost:5000/api/matsedel";
+
+function useAPI() {
+  const [matsedel, setMatsedel] = useState([
+    {
+      monday: "NOTHING",
+      mondayVeg: "Less than Nothing",
+      tuesday: "",
+      tuesdayVeg: "",
+      wednesday: "",
+      wednesdayVeg: "",
+      thursday: "",
+      thursdayVeg: "",
+      friday: "",
+      fridayVeg: ""
+    },
+    {
+      monday: "NOTHING",
+      mondayVeg: "Less than Nothing",
+      tuesday: "NOTHING",
+      tuesdayVeg: "",
+      wednesday: "NOTHING",
+      wednesdayVeg: "",
+      thursday: "NOTHING",
+      thursdayVeg: "",
+      friday: "NOTHING",
+      fridayVeg: ""
+    }
+  ]);
+
+  async function fetchMatsedel() {
+    await Axios.get(API).then(res => setMatsedel(res.data));
+  }
+
+  useEffect(() => {
+    fetchMatsedel();
+  }, []);
+
+  return [matsedel, fetchMatsedel];
+}
 
 function useInterval(callback, delay) {
   const savedCallback = useRef();
@@ -36,6 +87,8 @@ function useInterval(callback, delay) {
 }
 
 function App() {
+  const [matsedel, fetchMatsedel] = useAPI();
+
   const [day, setDay] = useState(new Date());
 
   let numberedDay = day.getDay();
@@ -77,7 +130,11 @@ function App() {
         infinite
         stopAutoPlayOnHover
       >
-        <Matsedel currentDay={numberedDay} dayName={stringDay}></Matsedel>
+        <Matsedel
+          currentDay={numberedDay}
+          dayName={stringDay}
+          matsedel={matsedel}
+        ></Matsedel>
         <CurrentInfo currentDay={numberedDay} dayName={stringDay}></CurrentInfo>
       </Carousel>
     </div>
